@@ -1,0 +1,72 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+    <div class="container">
+        <h3>Vote when?</h3>
+        <h1>VoteNOW</h1>
+        <p class="lead">Quickly gather data from your audience with custom polls!</p>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Share your opinion!</h1>
+            <div class="col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
+                <table class="table">
+                  <tr>
+                        <th><h4>{{thing.name}}</h4></th>
+                        <th>
+                            <h4>Score</h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>{{thing.option1}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="onePlusThing(thing, thing.score1, 'score1')">{{thing.score1}}+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{thing.option2}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="onePlusThing(thing, thing.score2, 'score2')">{{thing.score2}}+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{thing.option3}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="onePlusThing(thing, thing.score3, 'score3')">{{thing.score3}}+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{thing.option4}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="onePlusThing(thing, thing.score4, 'score4')">{{thing.score4}}+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{thing.option5}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="onePlusThing(thing, thing.score5, 'score5')">{{thing.score5}}+</button>
+                        </td>
+                    </tr>
+                </table>
+                <button class="btn btn-danger" ng-click="deleteThing(thing)">Delete poll</button>
+            </div>
+        </div>
+        <div class="col-lg-2 col-lg-offset-5">
+            Question:
+            <input ng-model="newThing"> Option 1:
+            <input ng-model="option1"> Option 2:
+            <input ng-model="option2"> Option 3:
+            <input ng-model="option3"> Option 4:
+            <input ng-model="option4"> Option 5:
+            <input ng-model="option5">
+            <button ng-click="addThing(newThing)">submit</button>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p>Angular Fullstack v2.1.1 |
+            <a href="https://twitter.com/linn_ben">@linn_ben</a>
+    </div>
+</footer>
