@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/votenow-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };

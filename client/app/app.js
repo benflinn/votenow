@@ -5,7 +5,8 @@ angular.module('votenowApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'LocalStorageModule'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

@@ -5,6 +5,10 @@ angular.module('votenowApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },
+    {
+      'title': 'My Polls',
+      'link': '/mypolls'
     }];
 
     $scope.isCollapsed = true;

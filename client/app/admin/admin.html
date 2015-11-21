@@ -1,12 +1,30 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
 <div class="container">
-  <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="user in users">
-        <strong>{{user.name}}</strong><br>
-        <span class="text-muted">{{user.email}}</span>
-        <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
-    </li>
-  </ul>
+    <p>The delete user and user index api routes are restricted to users with the 'admin' role.</p>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="user in users">
+            <strong>{{user.name}}</strong>
+            <br>
+            <span class="text-muted">{{user.email}}</span>
+            <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+        </li>
+    </ul>
+    <div class="col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings" ng-hide="removed(thing);">
+        <table class="table">
+            <tr>
+                <th>
+                    <h4>{{thing.name}}</h4></th>
+                <th>
+                    <h4>Score</h4>
+                </th>
+            </tr>
+            <tr ng-repeat="choice in thing.choices">
+                <td>{{choice}}</td>
+                <td>
+                    <h4><label class="label label-primary">{{thing.scores[$index]}}+</label></h4>
+                </td>
+            </tr>
+        </table>
+        <button class="btn btn-danger col-xs-4 col-xs-offset-4" ng-click="deleteThing(thing)">Delete poll</button>
+    </div>
 </div>

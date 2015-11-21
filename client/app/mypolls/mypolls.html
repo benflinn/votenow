@@ -1,0 +1,63 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+    <div class="container">
+        <h3>Who votes?</h3>
+        <h1>YOUvote!</h1>
+        <p class="lead">Quickly gather data from your audience with custom polls!</p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well top30">
+            <h3 class="text-center">Your majesty, </h3>
+            <h1 class="text-center">Here are the results from your polls:</h1>
+        </div>
+            <div class="col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings" ng-hide="removed(thing);">
+                <table class="table">
+                    <tr>
+                        <th>
+                            <h4>{{thing.name}}</h4></th>
+                        <th>
+                            <h4>Score</h4>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="choice in thing.choices">
+                        <td>
+                            <h4>{{choice}}</h4></td>
+                        <td>
+                            <h4><label class="label label-primary">{{thing.scores[$index]}}+</label></h4>
+                        </td>
+                    </tr>
+                </table>
+                <button class="btn btn-danger col-xs-4 col-xs-offset-4" ng-click="deleteThing(thing)">Delete poll</button>
+            </div>
+        </div>
+
+        <h1 class="text-center col-lg-12 well">Make a new poll!</h1>
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h4>Question</h4>
+            <h4><input class="col-xs-12" ng-model="newThing"></h4>
+        </div>
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <div ng-repeat="newChoice in newChoices" class="col-lg-8 col-lg-offset-2 text-center">
+                <h4>Option {{newChoice + 1}}:</h4>
+                <h4>
+                    <input class="col-xs-12" ng-model="newAnswers[$index]">
+                </h4>
+            </div>
+            <button class="btn btn-info btn-lg col-lg-5 top17" ng-click="addChoice()">Add Option</button>
+            <button class="btn btn-primary btn-lg col-lg-5 col-lg-offset-2 top17" ng-click="addThing(newThing)">Submit</button>
+        </div>
+    </div>
+</div>
+<div>
+    
+</div>
+<footer class="footer">
+    <div class="container">
+        <p>Angular Fullstack v2.1.1 |
+            <a href="https://twitter.com/linn_ben">@linn_ben</a>
+    </div>
+</footer>

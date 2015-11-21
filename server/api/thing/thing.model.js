@@ -5,17 +5,9 @@ var mongoose = require('mongoose'),
 
 var ThingSchema = new Schema({
   name: String,
-  option1: String,
-  option2: String,
-  option3: String,
-  option4: String,
-  option5: String,
-  score1: Number,
-  score2: Number,
-  score3: Number,
-  score4: Number,
-  score5: Number,
-  info: String,
+  choices: Array,
+  scores: Array,
+  createdBy: String,
   active: Boolean
 });
 
