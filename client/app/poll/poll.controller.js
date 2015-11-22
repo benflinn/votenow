@@ -1,14 +1,17 @@
 'use strict';
 
 angular.module('votenowApp')
-    .controller('MainCtrl', function($scope, $http, localStorageService) {
+    .controller('PollCtrl', function($scope, $route, $routeParams, $http, localStorageService) {
 
-        var votes = localStorageService.get('storedVotes') || [];
+    	var votes = localStorageService.get('storedVotes') || [];
 
-        $scope.awesomeThings = [];
+        var pollAddress = $routeParams.id;
+        var pollData = [];
 
-        $http.get('/api/things').success(function(awesomeThings) {
-            $scope.awesomeThings = awesomeThings;
+        $http.get('/api/things/' + pollAddress).success(function(awesomeThings) {
+            pollData = awesomeThings;
+            console.log(pollData);
+            $scope.pollData = pollData;
         });
 
         $scope.voteCheck = function(obj) {
@@ -19,11 +22,10 @@ angular.module('votenowApp')
             }
         };
 
-
         $scope.onePlusThing = function(obj, num) {
-            
+
             if (votes.indexOf(obj._id) !== -1) {
-                alert('you have already voted in this poll.');
+                alert('You have already voted in this poll.');
             } else {
                 obj.scores[num]++;
                 votes.push(obj._id);

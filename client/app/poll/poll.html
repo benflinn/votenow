@@ -1,0 +1,45 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+    <div class="container">
+        <h3>Who votes?</h3>
+        <h1>YOUvote!</h1>
+        <p class="lead">Quickly gather data from your audience with custom polls!</p>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well top30">
+                <h3 class="text-center">Hi there, </h3>
+                <h1 class="text-center">Your friend wants your input on this poll:</h1>
+            </div>
+            <div class="col-md-offset-2 col-md-8">
+                <table class="table">
+                    <tr>
+                        <th>
+                            <h4>{{pollData.name}}</h4></th>
+                        <th>
+                            <h4>Score</h4>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="choice in pollData.choices">
+                        <td>
+                            <h4>{{choice}}</h4></td>
+                        <td>
+                            <h4><button class="btn btn-info" ng-show="voteCheck(pollData)" ng-click="onePlusThing(pollData, $index)">Vote</button>
+                            <label class="label label-primary" ng-hide="voteCheck(pollData)" >{{pollData.scores[$index]}}</label></h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p>Angular Fullstack v2.1.1 |
+            <a href="https://twitter.com/linn_ben">@linn_ben</a>
+    </div>
+</footer>
